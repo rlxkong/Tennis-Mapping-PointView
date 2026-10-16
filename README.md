@@ -1,63 +1,44 @@
 # PointView ESP
 
-**Affordable tennis video analysis, built around the way players actually review a match.**
+PointView ESP is a Python tennis-video analysis project. Its current pipeline detects players, tracks the ball, maps court positions onto a mini-court view, estimates bounces and hits, and writes an annotated output video.
 
-PointView ESP is an entrepreneurship project exploring a more approachable way for tennis players and coaches to learn from match video. The concept brings video review, tennis-specific stats, and searchable notes into one workflow.
+## Pipeline
 
-> **Project status:** This repository is a project scaffold and product overview. No application source code, trained models, or working analysis pipeline was included when it was prepared. The capabilities below describe the project vision, not verified implementation.
+The current entrypoint is main.py. It combines these project modules:
 
-## The idea
+- trackers/ for player detection and tracking.
+- TrackNet/ for tennis-ball tracking.
+- tennis_court_keypoint_detector/ for court keypoint annotation and drawing.
+- mini_court/ for mapping detected positions into a mini-court view.
+- bounce_detector/ for bounce and hit estimates.
+- utils/ for video and geometry helpers.
 
-Players record a match, upload the footage, and review the moments that matter without spending hours scrubbing through inactive play. PointView ESP is intended to make that process easier to use and more affordable than traditional video-analysis options.
+This repository contains the project source. It does not include match videos, training datasets, generated run outputs, or all trained model checkpoints.
 
-## Planned player workflow
+## Running the current pipeline
 
-1. Upload a tennis match video.
-2. Trim or skip inactive stretches so review time focuses on play.
-3. Explore tennis-relevant stats and video moments.
-4. Add searchable notes to remember patterns, adjustments, and coaching feedback.
+The entrypoint currently uses paths such as input_videos/home3.mp4 and model files under models/. Add a video you have permission to analyze, obtain the required trained checkpoints, and update the paths in main.py before running it. The pipeline writes an annotated video to output_videos/.
 
-## Computer-vision direction
+Required files referenced by main.py include:
 
-The project explored a computer-vision pipeline using:
+- models/player-detection-last.pt
+- models/tracknet_model_best.pt
+- models/ctb_regr_bounce.cbm
+- models/keypoints_model.pth
 
-- **YOLOv8 and BYTETrack** for player detection and tracking.
-- **TrackNet** for tennis-ball tracking.
-- **Court keypoints and homography** to map video positions to a court view.
+Only the player detector and bounce-regression checkpoint are included. The TrackNet and court-keypoint checkpoints are larger model files and are not hosted in this repository. The exact dependency set for the complete pipeline also needs to be consolidated; TrackNet/requirements.txt documents the older TrackNet environment.
 
-These are proposed or explored technical directions; this repository does not currently contain models, weights, datasets, or a working pipeline. Any future implementation should document model versions, data sources, evaluation results, and applicable licenses.
+## Data and model files
 
-## Product principles
+Keep private match footage, datasets, cached detections, and generated videos out of source control. The .gitignore excludes common local data and model artifacts. Do not publish footage or model weights unless you have permission and have checked their licenses and size limits.
 
-- **Accessible:** Keep the experience and intended cost approachable for players.
-- **Useful:** Connect statistics to video moments and notes that support practice.
-- **Respectful of player data:** Explain how uploaded videos are stored, used, and deleted before accepting real match footage.
-- **Honest about analysis:** Show uncertainty and avoid presenting estimates as official match statistics.
+## Third-party code
 
-## Repository status
+The TrackNet/ directory contains a TrackNet implementation and its upstream README, which credits the original TrackNet project and paper. Review upstream licensing before redistributing or reusing that code.
 
-This repository currently contains project documentation only. There is no installable app, API, dataset, model, or demo yet. As implementation is added, update this section with the supported platforms, setup instructions, and a real demo link.
+## Current limitations
 
-## Getting started
-
-There is no application to install yet. For now, start with the project overview and roadmap:
-
-- [Project roadmap](ROADMAP.md)
-
-When a runnable implementation is added, replace this section with verified setup steps and sample inputs that can be shared publicly.
-
-## Potential next steps
-
-- Confirm the target user and first release scope with players and coaches.
-- Choose a video-upload and storage approach, including retention and deletion behavior.
-- Define a small, consented evaluation set and metrics for tracking quality.
-- Build and evaluate one end-to-end analysis workflow before expanding features.
-- Add setup instructions, screenshots, and a short demo after those pieces exist.
-
-## Team
-
-PointView ESP was co-founded by three tennis teammates. Add founder names and contact links here when the team is ready to publish them.
-
-## License
-
-No license has been selected yet. Until one is added, do not assume this project is available for reuse. Choose a license with the project team before inviting contributions or reuse.
+- The pipeline is a research prototype, not a packaged app or web service.
+- Checkpoint and video paths are currently configured in source code.
+- Court keypoints and ball/player detection can fail on footage that differs from the data used to train the models.
+- The repository does not yet provide a unified install file or automated evaluation results.
