@@ -1,0 +1,40 @@
+# Environment variables and local secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node.js
+node_modules/
+dist/
+build/
+.next/
+.turbo/
+
+# Local data and tennis footage (do not commit private match videos)
+data/
+datasets/
+videos/
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.pt
+*.pth
+*.onnx
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
