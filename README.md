@@ -37,7 +37,7 @@ Keep private match footage, datasets, cached detections, and generated videos ou
 - **Tennis Match Analysis** by [pratyusharoraa](https://github.com/pratyusharoraa/Tennis-Match-Analysis) — used as a reference for this project and its tennis court keypoint training resources. The court-keypoint training notebook uses the dataset link documented by that project.
 - **TrackNet** by [yastrebksv](https://github.com/yastrebksv/TrackNet) — the TrackNet implementation in the TrackNet/ folder was adapted from this repository. TrackNet is described in [“A Deep Learning Network for Tracking High-speed and Tiny Objects in Sports Applications”](https://arxiv.org/abs/1907.03698).
   
-- **Entrepreneurship Studio Program** — summer research opportunity provided by Harvey Mudd College. I would like to especially think my teammates Bell Zhou and Emily Ing for helping me develop this program and the user interface. I would also like to thank Professor Zachary Dodds for advising us and guiding us through this project. Lastly, I would like to thank all the guest speakers and our peers from the lab for the insightful feedback and suggestions.  
+- **Entrepreneurship Studio Program** — summer research opportunity provided by Harvey Mudd College. I would like to especially thank my teammates Bell Zhou and Emily Ing for helping me develop the PointView program. I would also like to thank Professor Zachary Dodds for advising us and guiding us through the development process. Lastly, I would like to thank all the guest speakers and our peers from the lab for the insightful feedback and suggestions.  
 
 ## Current limitations
 
