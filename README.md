@@ -32,9 +32,11 @@ Only the player detector and bounce-regression checkpoint are included. The Trac
 
 Keep private match footage, datasets, cached detections, and generated videos out of source control. The .gitignore excludes common local data and model artifacts. Do not publish footage or model weights unless you have permission and have checked their licenses and size limits.
 
-## Third-party code
+## Acknowledgments and references
 
-The TrackNet/ directory contains a TrackNet implementation and its upstream README, which credits the original TrackNet project and paper. Review upstream licensing before redistributing or reusing that code.
+- **Tennis Match Analysis** by [pratyusharoraa](https://github.com/pratyusharoraa/Tennis-Match-Analysis) — used as a reference for this project and its tennis court keypoint training resources. The court-keypoint training notebook uses the dataset link documented by that project.
+- **TrackNet** by [yastrebksv](https://github.com/yastrebksv/TrackNet) — the TrackNet implementation in the TrackNet/ folder was adapted from this repository. TrackNet is described in [“A Deep Learning Network for Tracking High-speed and Tiny Objects in Sports Applications”](https://arxiv.org/abs/1907.03698).
+- The tennis-ball detector training notebook downloads Roboflow workspace bonkers, project combination-stdnc, version 4. Credit the dataset owner when redistributing or publishing derived models or data.
 
 ## Current limitations
 
