@@ -1,6 +1,6 @@
 # Tennis Mapping - PointView ESP
 
-This repositor is a Python tennis-video analysis project. Its current pipeline detects players, tracks the ball, maps court positions onto a mini-court view, estimates bounces and hits, and writes an annotated output video.
+This repository is a Python tennis-video analysis project. Its current pipeline detects players, tracks the ball, maps court positions onto a mini-court view, estimates bounces and hits, and writes an annotated output video.
 
 ## Pipeline
 
